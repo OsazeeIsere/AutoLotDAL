@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AutoLotDAL.Models\AutoLotDAL.Models.csproj">
+      <Project>{5cd202f9-b244-4393-b776-5de28c954ae0}</Project>
+      <Name>AutoLotDAL.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AutoLotDAL\AutoLotDAL.csproj">
       <Project>{74851367-3c45-4532-8396-9f4d6fd92c09}</Project>
       <Name>AutoLotDAL</Name>

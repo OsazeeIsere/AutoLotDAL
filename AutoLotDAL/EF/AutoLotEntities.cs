@@ -2,14 +2,24 @@ namespace AutoLotDAL.Models
 {
     using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+    using System.Data.Entity.Core.Objects;
+    using System.Data.Entity.Infrastructure.Interception;
+    using AutoLotDAL.Interception;
+    using AutoLotDAL.Models;
+    
 
     public partial class AutoLotEntities : DbContext
     {
         public AutoLotEntities()
             : base("name=AutoLotEntities")
         {
+            DbInterception.Add(new ConsoleWriterInterceptor());
+            //DatabaseLogger.StartLogging();
+            //DbInterception.Add(DatabaseLogger);
+
+            //var context = (this as IObjectContextAdapter).ObjectContext;
+            //context.ObjectMaterialized += OnObjectMaterialized;
+            //context.SavingChanges += OnSavingChanges;
         }
 
         public virtual DbSet<CreditRisks> CreditRisks { get; set; }
